@@ -1,6 +1,8 @@
-FROM alpine:3.6
+FROM alpine:3.9
 
 LABEL maintainer="DJ Enriquez <denrie.enriquezjr@gmail.com> (@djenriquez)"
+
+
 
 RUN addgroup nomad && \
     adduser -S -G nomad nomad
@@ -34,7 +36,7 @@ RUN set -x && \
     gosu nobody true && \
     apk del .gosu-deps
 
-ENV NOMAD_VERSION 0.8.4
+ENV NOMAD_VERSION 0.9.3
 
 RUN set -x \
   && apk --update add --no-cache --virtual .nomad-deps gnupg curl \
